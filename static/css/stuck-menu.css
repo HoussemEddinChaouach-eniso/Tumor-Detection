@@ -1,0 +1,17 @@
+/* Stuck menu styles
+========================================================*/
+.isStuck {
+  z-index: 99;
+  margin: 0;
+  padding: 9px 0 !important;
+  -webkit-box-shadow: 0 9px 9px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 9px 9px 0 rgba(0, 0, 0, 0.3);
+}
+.isStuck .sub-menu > ul {
+  top: 41px !important;
+}
+@media only screen and (max-width: 979px) {
+  .isStuck {
+    display: none !important;
+  }
+}

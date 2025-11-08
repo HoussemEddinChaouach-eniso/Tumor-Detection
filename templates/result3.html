@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model Visualization</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #f0f4f8, #e0efff); /* Light blue gradient */
+            color: white;
+        }
+
+        /* Navigation bar */
+        .navbar {
+            background-color: #00bcd4; /* Sky blue */
+        }
+        .navbar a {
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+        }
+        .navbar a:hover {
+            background-color: #007b83; /* Darker blue on hover */
+            border-radius: 5px;
+        }
+
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        .header-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header-container h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #00bcd4;
+        }
+
+        .header-container p {
+            font-size: 1.2rem;
+            color: #d1d3e2;
+        }
+
+        .card {
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        #viewer {
+            width: 100%;
+            max-width: 1200px;
+            height: 500px;
+            border-radius: 10px;
+            background-color: #e9ecef;
+            margin: 0 auto;
+        }
+
+        .footer {
+            background-color: #00bcd4;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">3D Visualization</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Analyze Image</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header-container">
+            <h1>3D Model Visualization</h1>
+            <p>Display your 3D model and interact with it to analyze the data.</p>
+        </div>
+
+        <!-- 3D Model Section -->
+        <div class="card">
+            <div id="viewer"></div>
+            <a href="/static/Segmentation_8.obj" download class="btn btn-primary">Download 3D Model</a>
+        </div>
+
+        <!-- 3D Model Interaction Section -->
+        <div class="card">
+            <h4 class="text-center">Control the 3D Model</h4>
+            <p class="text-center">Use your mouse to rotate and zoom in on the model.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Your Project. All rights reserved.</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 500, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+
+        const canvasWidth = Math.min(window.innerWidth, 1200);
+        renderer.setSize(canvasWidth, 500);
+        document.getElementById('viewer').appendChild(renderer.domElement);
+
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(10, 10, 10);
+        scene.add(light);
+
+        const ambientLight = new THREE.AmbientLight(0x404040);
+        scene.add(ambientLight);
+
+        const loader = new THREE.OBJLoader();
+        loader.load('/static/Segmentation_8.obj', function (object) {
+            scene.add(object);
+            const box = new THREE.Box3().setFromObject(object);
+            const size = box.getSize(new THREE.Vector3()).length();
+            const center = box.getCenter(new THREE.Vector3());
+            object.position.x -= center.x;
+            object.position.y -= center.y;
+            object.position.z -= center.z;
+            camera.position.z = size * 2.5;
+            camera.aspect = canvasWidth / 500;
+            camera.updateProjectionMatrix();
+        }, undefined, function (error) {
+            console.error('Error loading model:', error);
+        });
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+        window.addEventListener('resize', () => {
+            const width = Math.min(window.innerWidth, 1200);
+            const height = 500;
+            renderer.setSize(width, height);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>

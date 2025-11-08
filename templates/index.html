@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon" />
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your keywords">
+    <meta name="author" content="Your name">
+    <meta name = "format-detection" content = "telephone=no" />
+
+    <!--CSS-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/camera.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contact-form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/font-awesome.css') }}">
+
+    <!--JS-->
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-migrate-1.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.mobilemenu.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.equalheights.js') }}"></script> 
+    <script src="{{ url_for('static', filename='js/camera.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/TMForm.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>  
+    <script src="{{ url_for('static', filename='js/bootstrap-filestyle.js') }}"></script> 
+
+    <script>
+        $(document).ready(function(){
+            jQuery('.camera_wrap').camera();
+        });
+    </script>
+
+    <!--[if (gt IE 9)|!(IE)]><!-->
+    <script src="{{ url_for('static', filename='js/wow/wow.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wow/device.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.mobile.customized.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {       
+          if ($('html').hasClass('desktop')) {
+            new WOW().init();
+          }   
+        });
+    </script>
+    <!--<![endif]-->
+
+</head>
+<body>
+<!--header-->
+<header class="clearfix">
+    <div class="container">
+        <div class="content"> 
+       
+        <img src="{{ url_for('static', filename='img/Eniso.png') }}" width="75 px "   alt="NeuroScan"> 
+    
+        </div>
+    </div>
+    <nav class="navbar navbar-default navbar-static-top tm_navbar clearfix" role="navigation">
+        <div class="container">
+            <ul class="nav sf-menu clearfix">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li class="sub-menu"><a href="index-1.html">About staff</a><span></span>
+                    <ul class="submenu">
+        				<li><a href="#">history</a></li>
+        				<li><a href="#">news</a><span class="fa fa-angle-right"></span>
+                            <ul class="submenu">
+                                <li><a href="#">latest</a></li>
+                                <li><a href="#">archive</a></li>
+                              </ul> 
+                        </li>
+        				<li><a href="#">testimonials</a></li>
+        			</ul>
+                </li>
+                <li><a href="index-2.html">services</a></li>
+                <li><a href="index-3.html">blog</a></li>
+                <li><a href="index-4.html">Contacts</a></li>
+            </ul>
+            <form id="search" class="search" action="search.php" method="GET" accept-charset="utf-8">
+                <input type="text" name="s" value="" onfocus="if (this.value == '') {this.value=''}" onblur="if (this.value == '') {this.value=''}">
+                <a href="#" onClick="document.getElementById('search').submit()"><img src="{{ url_for('static', filename='img/magnify.png') }}" alt=""></a>
+            </form><br>
+            <ul class="follow_icon">
+                <li><a href="#" class="fa fa-facebook"></a></li>
+                <li><a href="#" class="fa fa-google-plus"></a></li>
+                <li><a href="#" class="fa fa-rss"></a></li>
+                <li><a href="#" class="fa fa-pinterest"></a></li>
+                <li><a href="#" class="fa fa-linkedin"></a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="slider">  
+    <div class="camera_wrap">
+        <div data-src="{{ url_for('static', filename='img/picture1.jpg') }}">
+            <div class="camera-caption fadeIn">
+                <p class="title">Cancer is hard, <br>but it is not invincible.</p>
+            </div>
+        </div>
+        <div data-src="{{ url_for('static', filename='img/picture2.jpg') }}">
+            <div class="camera-caption fadeIn">
+                <p class="title">While cancer presents significant obstacles,<br>technology empowers us to confront it.</p>
+            </div>
+        </div>
+        <div data-src="{{ url_for('static', filename='img/picture3.jpg') }}">
+            <div class="camera-caption fadeIn">
+                <p class="title">Helping with all types<br>of cancer problems.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+<!--content-->
+<div class="content"> 
+    <div class="thumb-box1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 wow fadeInUp">
+                    <p class="title">Helping you analyse better </p>
+                    <p>Brain cancer remains one of the most challenging conditions to detect and treat effectively. Timely and accurate diagnosis plays a critical role in improving patient outcomes. Our project harnesses advanced medical imaging and cutting-edge technology to revolutionize tumor detection and monitoring.
+
+                        By leveraging MRI (Magnetic Resonance Imaging) data, our system identifies cancerous tumors in the brain, generates an accurate 3D model of the tumor, and calculates its volume with precision. Additionally, our predictive analytics feature estimates the tumor's growth over the next month, empowering medical professionals with the information needed to plan proactive and personalized treatments.
+                        
+                        This innovative tool bridges the gap between traditional medical imaging and modern technology, offering an intuitive and powerful resource to assist in early detection, treatment planning, and patient monitoring—all while improving efficiency and precision in healthcare.</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <a href="#" class="btn-default btn1">More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="thumb-box2">
+        <div class="container">
+            <p class="title wow fadeInLeft">Our professional advice</p>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp">
+                    <div class="thumb-pad1">
+                        <div class="thumbnail">
+                            <strong><img src="{{ url_for('static', filename='img/page1_icon1.png') }}" alt=""></strong>
+                            <div class="caption">
+                                <p class="description">Showcase Cost-Effectiveness</p>
+                                <p>Reduces time spent on image analysis. Improves diagnostic accuracy, potentially reducing unnecessary treatments. Enables proactive interventions, preventing complications or advanced-stage diagnoses.</p>
+                                <a href="#" class="btn-default btn2">read more <i></i></a>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="thumb-pad1">
+                        <div class="thumbnail">
+                            <strong><img src="{{ url_for('static', filename='img/page1_icon1.png') }}" alt=""></strong>
+                            <div class="caption">
+                                <p class="description">Highlight Decision-Support Features</p>
+                                <p>Automatically calculating tumor volume and displaying it alongside historical growth trends. Providing growth predictions to assist in treatment planning or surgical considerations. Offering intuitive visualizations (e.g., interactive 3D models) that simplify complex cases.</p>
+                                <a href="#" class="btn-default btn2">read more <i></i></a>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="thumb-pad1">
+                        <div class="thumbnail">
+                            <strong><img src="{{ url_for('static', filename='img/page1_icon1.png') }}" alt=""></strong>
+                            <div class="caption">
+                                <p class="description">Emphasize Clinical Validation and Accuracy</p>
+                                <p>Is trained and tested on diverse and validated MRI datasets to reflect real-world cases. Reports metrics like sensitivity, specificity, accuracy, and false-positive rates in detecting tumors. Undergoes independent clinical validation or pilot studies in hospitals.</p>
+                                <a href="#" class="btn-default btn2">read more <i></i></a>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+<div class="thumb-box3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="thumb-pad2 maxheight">
+                    <div class="thumbnail">
+                        <figure><img src="{{ url_for('static', filename='img/tbib.png') }}" width="200" height="245" alt=""></figure>
+                        <div class="caption">
+                            <p class="title">Detect tumor using IRM</p>
+                            <p>This program is designed to read Magnetic Resonance Imaging (MRI) scans and identify the presence and location of tumors. Leveraging advanced image processing techniques and machine learning algorithms, it provides accurate and efficient tumor detection to assist medical professionals in diagnosis and treatment planning.</p>
+                            <a href="{{ url_for('upload_image') }}"><img src="{{ url_for('static', filename='img/more_arrow1.png') }}" alt=""></a>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInLeft" data-wow-delay="0.1s">
+                <div class="thumb-pad2 maxheight">
+                    <div class="thumbnail">
+                        <figure><img src="{{ url_for('static', filename='img/doctor-working-laptop-with-brain-image-background-cardiologist-doctor-work.jpg') }}" alt=""></figure>
+                        <div class="caption">
+                            <p class="title">3D model</p>
+                            <p>This program processes a sequence of MRI image slices to reconstruct a 3D visualization of detected tumors. It provides medical professionals with a comprehensive spatial understanding of the tumor's shape, size, and position within the body, enhancing diagnosis and treatment planning.</p>
+                            <a href="{{ url_for('index3') }}"><img src="{{ url_for('static', filename='img/more_arrow1.png') }}" alt=""></a>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInLeft">
+                <div class="thumb-pad2 maxheight">
+                    <div class="thumbnail">
+                        <figure><img src="{{ url_for('static', filename='img/neuroscience-doctor-holding-clipboard-showing-treatment-against-brain-disease-patient-with-eeg-headset-woman-sitting-neurological-scientific-laboratory-treating-nervous-system-dysfunctions.jpg') }}" alt=""></figure>
+                        <div class="caption">
+                            <p class="title">Volume Prediction System</p>
+                            <p>This program analyzes two sets of MRI images taken at different time points and predicts the tumor's volume after 15 days. Using advanced machine learning models trained on temporal medical imaging data, the program estimates the tumor's growth or shrinkage, providing valuable insights for treatment planning and monitoring.</p>
+                            <a href="{{ url_for('index4') }}"><img src="{{ url_for('static', filename='img/more_arrow1.png') }}" alt=""></a>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="thumb-box4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-6 col-sm-6 wow fadeInUp">
+                <p class="title"><img src="{{ url_for('static', filename='img/title_icon1.png') }}" alt="">Our Mission</p>
+                <p>Our mission is to advance the capabilities of medical diagnostics by integrating cutting-edge technology with healthcare. We strive to empower medical professionals with innovative tools that facilitate early detection, precise monitoring, and effective treatment planning for brain cancer. By leveraging AI-driven analysis, 3D modeling, and predictive insights, we aim to enhance patient care, improve clinical outcomes, and support personalized treatment strategies. Our commitment to precision, efficiency, and data security ensures that we are helping to transform the future of oncology care, one patient at a time.</p>
+                <a href="#" class="btn-default btn2">read more <i></i></a>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-6 col-lg-offset-1 wow fadeInUp" data-wow-delay="0.1s">
+                <p class="title"><img src="{{ url_for('static', filename='img/title_icon2.png') }}" alt="">Consultation</p>
+                <p>Consultations are a fundamental part of our service, designed to provide medical professionals and patients with personalized insights and support. Our platform facilitates detailed discussions through secure, real-time consultations that help interpret complex diagnostic data, review 3D tumor models, and create personalized treatment strategies. We aim to enhance the diagnostic process, foster collaborative decision-making, and ensure that both medical teams and patients are well-informed. By integrating our advanced diagnostic tools with expert consultations, we strive to deliver a holistic approach to brain cancer care, prioritizing accuracy, patient understanding, and treatment efficacy.</p>
+                <a href="#" class="btn-default btn2">read more <i></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="thumb-box7">
+    <div class="container">
+        <p class="title wow fadeInLeft">Quick Contact</p>
+        <div class="contactForm2">
+            <form id="contact-form" action="{{ url_for('index') }}" method="POST">
+
+                <div class="contact-form-loader"></div>
+                <div class="row">
+                    <fieldset>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <label class="message form-div-4">
+                                <textarea name="message" placeholder="Your Message" data-constraints='@Required @Length(min=20,max=999999)'></textarea>
+                                <span class="empty-message">*This field is required.</span>
+                                <span class="error-message">*The message is too short.</span>
+                            </label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="box">
+                                <label class="name form-div-1">
+                                    <input type="text" name="name" placeholder="Your Name" value="" data-constraints="@Required @JustLetters"  />
+                                    <span class="empty-message">*This field is required.</span>
+                                    <span class="error-message">*This is not a valid name.</span>
+                                </label>
+                                <label class="email form-div-2">
+                                    <input type="text" name="email" placeholder="Your Email" value="" data-constraints="@Required @Email" />
+                                    <span class="empty-message">*This field is required.</span>
+                                    <span class="error-message">*This is not a valid email.</span>
+                                </label>
+                                <div class="btns">
+                                    <button type="submit" class="btn-default btn3">Submit the form</button>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal fade response-message">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Message Sent</h4>
+                            </div>
+                            <div class="modal-body">
+                                Your message has been sent! We will be in touch soon.
+                            </div>      
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="thumb-box8">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp">
+                <div class="thumb-pad3-1">
+                    <div class="thumbnail">
+                        <div class="box clearfix">
+                            <div>
+                                <strong>23</strong>
+                                <span>November</span>
+                            </div>
+                            <hr>
+                            <a href="#">We announce our new project, the WaveDetect Headset</a>
+                        </div>
+                        <div class="caption">
+                            <p>It is set to revolutionize the way we detect cancer. This innovative headset will utilize advanced wave-based technology, such as electromagnetic and sound waves, to scan and identify tumors non-invasively in real time...</p>
+                        </div>
+                        <a href="#" class="btn-default btn2">Read more <i></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="thumb-pad3-1">
+                    <div class="thumbnail">
+                        <div class="box clearfix">
+                            <div>
+                                <strong>14</strong>
+                                <span>November</span>
+                            </div>
+                            <hr>
+                            <a href="#">The Tumor 3D Model is finally launched</a>
+                        </div>
+                        <div class="caption">
+                            <p>After months of intensive research, prototype development, and clinical testing, the tumor detection project was officially launched...</p>
+                        </div>
+                        <a href="#" class="btn-default btn2">Read more <i></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 logo-box wow fadeInUp" data-wow-delay="0.2s">
+                <figure><a href="#"><img src="{{ url_for('static', filename='img/ccc.png') }}" alt=""></a></figure>
+                <p>Eniso,<br>RHPR+V55, Sousse<br><a href="mailto:Dr.life@gmail.com">NeuroScan@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 indent maxheight2 wow fadeInUp">
+                <p class="title">Copyright</p>
+                <p class="prev">&copy; <em id="copyright-year"></em> <a href="index-5.html">Privacy Policy</a></p>
+                <ul class="follow_icon2">
+                    <li><a href="#" class="fa fa-facebook"></a></li>
+                    <li><a href="#" class="fa fa-google-plus"></a></li>
+                    <li><a href="#" class="fa fa-rss"></a></li>
+                    <li><a href="#" class="fa fa-pinterest"></a></li>
+                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 maxheight2 wow fadeInUp" data-wow-delay="0.1s">
+                <p class="title">Important Links</p>
+                <ul class="list1">
+                    <li><a href="#">Affiliate Program</a></li>
+                    <li><a href="#">Special Promotions</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 maxheight2 wow fadeInUp" data-wow-delay="0.2s">
+                <p class="title">Support Menu</p>
+                <ul class="list1">
+                    <li><a href="#">Lost Password?</a></li>
+                    <li><a href="#">Forgot your Username?</a></li>
+                    <li><a href="#">Your Membership</a></li>
+                    <li><a href="#">Your Account</a></li>
+                    <li><a href="#">Support Forum</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 maxheight2 wow fadeInUp" data-wow-delay="0.3s">
+                <p class="title">About Us</p>
+                <ul class="list1">
+                    <li><a href="#">Customer Focus</a></li>
+                    <li><a href="#">Performance</a></li>
+                    <li><a href="#">Innovation</a></li>
+                    <li><a href="#">Responsibility</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/tm-scripts.js') }}"></script>
+</body>
+</html>
