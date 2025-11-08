@@ -1,3 +1,2 @@
 # Tumor-Detection
-[demo
-](https://github.com/user-attachments/assets/a5c93a4b-8291-4581-ae54-5eb6d32e2e0d)
+https://github.com/user-attachments/assets/e3e31f8c-657d-4e8a-9f9d-2ef541ecb8e5
