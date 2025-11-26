@@ -1,4 +1,3 @@
-# Tumor-Detection
 https://github.com/user-attachments/assets/e3e31f8c-657d-4e8a-9f9d-2ef541ecb8e5
 <div align="center">
   
@@ -74,7 +73,9 @@ https://github.com/user-attachments/assets/e3e31f8c-657d-4e8a-9f9d-2ef541ecb8e5
 
 <!-- About the Project -->
 ## About the Project
-
+demo
+https://github.com/user-attachments/assets/e3e31f8c-657d-4e8a-9f9d-2ef541ecb8e5
+<div align="center">
 <!-- Mission -->
 ### Mission
 To democratize advanced medical diagnostics by leveraging artificial intelligence for accurate brain tumor detection and classification. This project aims to assist medical professionals with reliable, fast, and accessible AI-powered analysis of MRI brain scans, ultimately contributing to early detection and better patient outcomes.
